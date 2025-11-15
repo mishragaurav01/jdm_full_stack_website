@@ -1,0 +1,44 @@
+// hooks/useServiceData.js
+import { useQuery } from "@tanstack/react-query";
+
+const fetchServiceData = async () => {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => {
+    controller.abort();
+  }, 8000); // Timeout after 8000ms (8 seconds)
+
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL_V1}/services/`, {
+      cache: 'no-store',
+      signal: controller.signal,
+    });
+
+    clearTimeout(timeout);
+
+    if (!res.ok) throw new Error("Failed to fetch home data");
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+
+    const baseUrl = process.env.NEXT_PUBLIC_API_URL; // e.g., 'https://example.com/'
+
+    // Assume data is an array of services
+    const processedData = data.map(service => ({
+      ...service,
+      image: service.image?.startsWith('http') ? service.image : `${baseUrl}${service.image}`,
+    }));
+
+    return processedData;
+  } catch (err) {
+    if (err.name === 'AbortError') {
+      throw new Error("Request timed out");
+    }
+    throw err;
+  }
+};
+
+export const useServiceData = () => {
+  return useQuery({
+    queryKey: ["service"],
+    queryFn: fetchServiceData,
+  });
+};
