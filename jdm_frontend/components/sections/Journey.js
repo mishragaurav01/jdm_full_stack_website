@@ -16,12 +16,15 @@ const Journey = ({url, heading}) => {
     );
 
     if (videoRef.current) {
+      console.log("Video is being observe");
+      
       observer.observe(videoRef.current);
     }
 
     // Cleanup
     return () => {
       if (videoRef.current) {
+        console
         observer.unobserve(videoRef.current);
       }
     };
