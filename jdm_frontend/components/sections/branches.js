@@ -43,7 +43,7 @@ const IndianBranches = ({data}) => {
       </Head>
       <section className="py-5 branch-section">
         <div className="container">
-        <div className="section-title text-center">
+          <div className="section-title text-center">
             <h2 className="wow fadeInUp" data-wow-delay=".2s">
               {data.heading || "Our Locations"}
             </h2>

@@ -4,7 +4,7 @@ import React, { useRef, useEffect, useState } from 'react';
 const Journey = ({url, heading}) => {
   const videoRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
-
+  console.log("Journey url: ", url);
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -24,7 +24,7 @@ const Journey = ({url, heading}) => {
     // Cleanup
     return () => {
       if (videoRef.current) {
-        console
+        console.log("Video is being unobserve");
         observer.unobserve(videoRef.current);
       }
     };
@@ -39,7 +39,7 @@ const Journey = ({url, heading}) => {
       }
     }
   }, [isVisible]);
-
+  console.log("oooo: ",videoRef)
   return (
     <section className="journey-section fix" id="journey">
       <div className="section-title text-center">
@@ -48,7 +48,7 @@ const Journey = ({url, heading}) => {
           Milestones & Achievements
           <i className="fa-regular fa-arrow-right-long" />
         </h6> */}
-        <h2 className="wow fadeInUp" data-wow-delay=".2s">
+        <h2 className=" fadeInUp" data-wow-delay=".2s">
           {heading}
         </h2>
       </div>

@@ -7,27 +7,30 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const defaultImages = [
-  "/assets/img/brand/Associations/1.png",
-  "/assets/img/brand/Associations/2.png",
-  "/assets/img/brand/Associations/3.png",
-  "/assets/img/brand/Associations/4.png",
-  "/assets/img/brand/Associations/5.png",
-  "/assets/img/brand/Associations/6.png",
-  "/assets/img/brand/Associations/7.png",
+const images = [
+  "/assets/img/brand/Associations/Domestic/1.png",
+  "/assets/img/brand/Associations/Domestic/2.png",
+  "/assets/img/brand/Associations/Domestic/3.png",
+  "/assets/img/brand/Associations/Domestic/4.png",
+  "/assets/img/brand/Associations/Domestic/5.png",
+  "/assets/img/brand/Associations/Domestic/6.png",
+  "/assets/img/brand/Associations/Domestic/7.png",
 ];
 
 export default function Brand1({
   alt,
   heading,
-  images = defaultImages,
+  // images = defaultImages,
   know_more,
   to,
   border = false,
   pagination,
 }) {
+
+  console.log("Brand1 images: ", images);
   // Fallback for empty images
   if (!images?.length) {
+    console.log("No images provided to Brand1 component");
     return <div className="text-center p-3">No partner logos available</div>;
   }
   console.log("image length", images.length);
