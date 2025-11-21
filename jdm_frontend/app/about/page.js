@@ -30,6 +30,7 @@ export default function About() {
       setAchievementssData(data.achievementsData);
       setTeamHeading(data.teamHeading);
       setFaqData(data.faqData);
+      console.log("About page data:", data);
     }
   }, [data]);
 

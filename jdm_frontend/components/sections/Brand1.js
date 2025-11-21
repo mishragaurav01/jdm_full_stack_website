@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-const images = [
+const defaultImages = [
   "/assets/img/brand/Associations/Domestic/1.png",
   "/assets/img/brand/Associations/Domestic/2.png",
   "/assets/img/brand/Associations/Domestic/3.png",
@@ -20,7 +20,7 @@ const images = [
 export default function Brand1({
   alt,
   heading,
-  // images = defaultImages,
+  images = defaultImages,
   know_more,
   to,
   border = false,

@@ -28,6 +28,7 @@ const CareerSection = ({ jobs }) => {
     const jobParam = searchParams.get("job");
     if (jobParam) {
       const job = jobs.find((j) => j.applyLink?.includes(jobParam));
+      console.log("Found job for modal:", job);
       if (job) {
         setSelectedJob(job);
         setIsModalOpen(true);

@@ -16,6 +16,7 @@ api = NinjaAPI(csrf=True, urls_namespace="core-api")
 @api.get("/home/", response=HomePageSchema)
 def get_home(request):
     home = HomePageContent.objects.first()  # Get the first instance of HomePageContent
+    print("home back: ", home.journey_video)
     if not home:
         return HttpError(404, "Home page content not found.")
 
@@ -319,6 +320,7 @@ def list_team_members(request):
     ]
 
 # Gallery
+print("CORE API LOADED")
 
 @api.get("/gallery/", response=list[GalleryEventSchema])
 def get_events(request, active_only: bool = True):
@@ -346,6 +348,8 @@ def get_events(request, active_only: bool = True):
                 } for p in photos
             ]
         })
+
+        print("Gallery Event:", result)
 
     return result
 

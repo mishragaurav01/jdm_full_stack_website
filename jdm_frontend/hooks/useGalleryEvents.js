@@ -6,6 +6,9 @@ const fetchGalleryEvents = async () => {
     controller.abort();
   }, 8000); // Timeout after 8 seconds
 
+  console.log("Calling Gallery API →", `${process.env.NEXT_PUBLIC_API_URL}/gallery/`);
+
+
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL_V1}/gallery/`, {
       cache: 'no-store',

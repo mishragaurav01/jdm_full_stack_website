@@ -1,4 +1,4 @@
-const BASE = process.env.NEXT_PUBLIC_API_URL;
+const BASE = process.env.NEXT_PUBLIC_BASE_URL;
 
 export const transformAboutData = (data) => {
   if (!data || !data.is_active) return null;

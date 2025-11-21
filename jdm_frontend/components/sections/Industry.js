@@ -52,6 +52,7 @@ const Industry = ({data}) => {
   return (
     <div className="container">
       <div className="about-wrapper">
+        {console.log("Industry data:", data)}
         {data.map((section, idx) => (
           <Section key={idx} {...section} />
         ))}

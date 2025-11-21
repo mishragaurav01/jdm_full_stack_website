@@ -11,6 +11,7 @@ const Gallery = () => {
 
   useEffect(() => {
     if (eventImages.length > 0 && !activeEvent) {
+      console.log("------------>", eventImages);
       setActiveEvent(eventImages[0].title);
     }
   }, [eventImages]);

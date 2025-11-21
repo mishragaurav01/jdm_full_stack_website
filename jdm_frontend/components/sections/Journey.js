@@ -59,9 +59,11 @@ const Journey = ({url, heading}) => {
         muted
         playsInline
       >
+        {console.log("url---------------> video: ", url)}
         <source src={url} type="video/mp4" />
         Your browser does not support the video tag.
       </video>
+      {/* <img src={url} alt="Journey" className="w-full" /> */}
     </section >
   );
 };
