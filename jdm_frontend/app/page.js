@@ -23,17 +23,12 @@ export default function Home2() {
   const [content, setContent] = useState(null);
 
   useEffect(() => {
-    console.log("inside useE", data);
-    
+  
     if (data && data.is_active) {
-      console.log("inside use i56789f");
-      
+
       setContent(transformHomeData(data));
     }
-    else {
-      console.log("inside else ");
-      
-    }
+
   }, [data]);
 
   // if (isLoading) return <Loading />;

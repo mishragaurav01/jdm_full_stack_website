@@ -20,6 +20,7 @@ def get_home(request):
     if not home:
         return HttpError(404, "Home page content not found.")
 
+
     return {
         "hero": {
             "video_url": home.hero_video.url if home.hero_video else None,

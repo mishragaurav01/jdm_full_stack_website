@@ -14,6 +14,7 @@ import { useAboutData } from "@/hooks/useAboutData";
 
 export default function About() {
   const { data, error, isLoading } = useAboutData();
+  console.log("About page hook data:", data);
 
   const [aboutHeading, setAboutHeading] = useState("About Us");
   const [storyData, setStoryData] = useState(null);

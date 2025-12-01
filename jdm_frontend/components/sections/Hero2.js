@@ -1,6 +1,6 @@
 "use client"
 import { useState, useEffect, useRef } from 'react';
-import TaglineBanner from "../layout/tagline_banner";
+import TaglineBanner from "../layout/TaglineBanner";
 import { useQuery } from "@tanstack/react-query";
 // import Loading from "@/app/loading";
 // import NotFound from "@/app/loading";
@@ -48,6 +48,7 @@ export default function Hero2({video_url = "/assets/img/hero/intro.mp4"}) {
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
+        {console.log("video url inside video tag---------: ", video_url)}
       }
     };
   }, []);
@@ -64,10 +65,12 @@ export default function Hero2({video_url = "/assets/img/hero/intro.mp4"}) {
           playsInline
           style={{ display: isVisible ? 'block' : 'none' }}
         >
+          {console.log("video url inside video tag: ", video_url)}
           <source src={video_url} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
+      {console.log("-----$$$$$$$$$")}
       <TaglineBanner />
     </section>
   );

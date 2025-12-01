@@ -19,6 +19,7 @@ const fetchHomeData = async () => {
 
     if (!res.ok) throw new Error("Failed to fetch home data");
     const data = await res.json();
+    console.log("data from home api: ", data);
     console.log("data123: ", data.error);
     if (data.error) throw new Error(data.error);
     return data;

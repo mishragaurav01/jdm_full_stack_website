@@ -177,9 +177,9 @@ export default function TeamSlider({heading}) {
         <div className="container-fluid">
           <div className="swiper team-slider">
             <Swiper {...swiperOptions} className="swiper-wrapper">
-              {console.log("Team members data:", teamMembers)}
+              {/* {console.log("Team members data:", teamMembers)} */}
               {teamMembers.map((member, index) => (
-                console.log("Rendering team member:", member),
+                // console.log("Rendering team member:", member),
                 <SwiperSlide key={member.id} className="swiper-slide">
                   <Link href={`/team-details/${member.id}`} className="card-hover">
                     <div className="team-box-items">
