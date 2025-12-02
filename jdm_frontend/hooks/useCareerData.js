@@ -9,6 +9,7 @@ const fetchJobs = async () => {
   if (!res.ok) throw new Error("Failed to fetch career data");
   const data = await res.json();
 
+    console.log("Fetched Jobs Data:", data);
   return data.map((job) => ({
     title: job.title || "Untitled Position",
     location: job.location || "Unknown Location",

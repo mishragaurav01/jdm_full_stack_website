@@ -8,6 +8,7 @@ import { useGalleryEvents } from "@/hooks/useGalleryEvents"; // adjust path acco
 const Gallery = () => {
   const { data: eventImages = [], isLoading: queryLoading, isError } = useGalleryEvents();
   const [activeEvent, setActiveEvent] = useState("");
+  console.log("Gallery Events Data:", eventImages);
 
   useEffect(() => {
     if (eventImages.length > 0 && !activeEvent) {

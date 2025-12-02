@@ -25,7 +25,7 @@ export default function About() {
 
   useEffect(() => {
     if (data) {
-      setAboutHeading(data.heading);
+      // setAboutHeading(data.heading);
       setStoryData(data.storyData);
       setVmData(data.vmData);
       setAchievementssData(data.achievementsData);

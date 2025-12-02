@@ -26,7 +26,9 @@ if (isLoading) return <Loading/>;
 // if (error) return <p>Error loading contact info</p>;
   return (
     <>
-      <Layout headerStyle={1} footerStyle={1} breadcrumbTitle={data.title} backgroundImage={"/assets/img/banner/contact.jpeg"}>
+      <Layout headerStyle={1} footerStyle={1} 
+      breadcrumbTitle={data.title} 
+      backgroundImage={"/assets/img/banner/contact.jpeg"}>
         <ContactInfo data={data}/>
         <ContactSection />
         <ContactInfo2 iframe={data.iframe}/>

@@ -15,6 +15,7 @@ const fetchIndustryData = async () => {
     if (!res.ok) throw new Error("Failed to fetch industry data");
 
     const data = await res.json();
+    console.log("Fetch Response Industry Data: ", data  );
     if (data.error) throw new Error(data.error);
     return data;  // Expected to be an array of industry objects
   } catch (err) {

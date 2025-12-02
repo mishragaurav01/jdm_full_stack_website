@@ -160,6 +160,7 @@ const renderDescription = (text) => {
 
 export default function TeamSlider({heading}) {
 
+
   const [teamMembers, setTeamMembers] = useState(defaultTeamMembers);
 
   return (

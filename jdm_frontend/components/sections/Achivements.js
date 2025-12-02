@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import Counter1 from "./Counter1";
 
 export default function Achievements({ data }) {
+  console.log("Achievements data:", data); 
   if (!data) return null;
 
   return (

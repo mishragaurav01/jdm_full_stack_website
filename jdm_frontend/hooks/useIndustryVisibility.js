@@ -14,9 +14,11 @@ const fetchIndustryVisibility = async () => {
     });
 
     clearTimeout(timeout);
+   
 
     if (!res.ok) throw new Error("Failed to fetch home data");
     const data = await res.json();
+    console.log("Fetch Response Industry Visibility Data: ", data);
     if (data.error) throw new Error(data.error);
     return data;
   } catch (err) {

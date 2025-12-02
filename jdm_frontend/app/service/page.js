@@ -4,6 +4,7 @@ import Service1 from "@/components/sections/Service1";
 export default function Services() {
   
   return (
+    console.log("Rendering Services page"),
     <>
       <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Our Services" backgroundImage="/assets/img/banner/services.jpg">
         <Service1 />

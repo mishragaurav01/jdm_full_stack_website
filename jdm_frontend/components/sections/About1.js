@@ -21,6 +21,7 @@ import "react-modal-video/css/modal-video.min.css"; // Import styles if needed
 
 const About1 = ({data}) => {
   const aboutData = data;
+  console.log("Story Section component data:", aboutData);
   const renderDescription = (text) => {
     return text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
   };

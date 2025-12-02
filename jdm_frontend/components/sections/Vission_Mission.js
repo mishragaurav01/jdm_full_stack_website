@@ -53,6 +53,7 @@ const Section = memo(({ title, content, listItems, image, isImageLeft }) => (
 
 
 const VisionMissionFounder = ({data}) => {
+  console.log("VisionMissionFounder data:", data);
  const { mission, vision, values } = data || {}
   return (
     <div className="container">
