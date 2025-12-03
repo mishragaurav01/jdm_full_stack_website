@@ -104,7 +104,7 @@ export default function Brand1({
           display: flex;
           justify-content: center;
           align-items: center;
-          ${border && "border: 2px solid var(--theme2);"};
+          
         }
         @media (max-width:475px){
           .brand-image {

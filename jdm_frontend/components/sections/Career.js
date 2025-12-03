@@ -205,9 +205,10 @@ const CareerSection = ({ jobs }) => {
             <div className="col-lg-12 text-center">
               <h2>How to Apply</h2>
               <p>
-                Interested in joining us? Click "Apply Now" on any job listing or send
+                Interested in joining us? Click "Apply Now" on any job listing.
+                {/* or send
                 your resume and cover letter to{" "}
-                <a href="mailto:careers@jdmlogistics.com">hr.del1@jdmgroups.com</a>.
+                <a href="mailto:careers@jdmlogistics.com">hr.del1@jdmgroups.com</a>. */}
               </p>
             </div>
           </div>
