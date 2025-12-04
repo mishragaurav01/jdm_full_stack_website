@@ -183,6 +183,10 @@ def get_about(request):
             if ach.is_active
             ]
         },
+        "key_strengths": {
+            "heading": about.key_strengths_heading,
+            "points": about.key_strengths_points,
+        },
         "team_heading" : about.team_heading,
         "is_active" : about.is_active,
         "is_story" : about.is_story,

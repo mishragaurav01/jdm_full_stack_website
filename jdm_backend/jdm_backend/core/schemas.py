@@ -110,6 +110,11 @@ class StorySchema(BaseModel):
     para1: str
     para2: str
 
+class KeyStrengthsSchema(BaseModel):
+    heading: str
+    points: List[str]
+
+
 class MissionSchema(BaseModel):
     heading: str
     paragraph: str
@@ -139,6 +144,7 @@ class AboutPageSchema(BaseModel):
     mission: MissionSchema
     vision: MissionSchema  # Assuming you want 'vision' to have a similar structure as 'mission'
     values: ValuesSchema
+    key_strengths: KeyStrengthsSchema
     faq: FAQSchema
     achievements: dict
     team_heading: str

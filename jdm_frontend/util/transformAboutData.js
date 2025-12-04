@@ -9,17 +9,20 @@ export const transformAboutData = (data) => {
     heading: data.heading,
     teamHeading: data.team_heading,
 
-    storyData: data.is_story && data.story
-      ? {
-          heading: data.story.heading,
-          paragraph: data.story.paragraph,
-          points: data.story.points || [],
-          founder_image_url: transformImage(data.story.founder_image_url),
-          para1: data.story.para1,
-          para2: data.story.para2,
-        }
-      : null,
+    // ------------------------ STORY SECTION ------------------------
+    storyData:
+      data.is_story && data.story
+        ? {
+            heading: data.story.heading,
+            paragraph: data.story.paragraph,
+            points: data.story.points || [],
+            founder_image_url: transformImage(data.story.founder_image_url),
+            para1: data.story.para1,
+            para2: data.story.para2,
+          }
+        : null,
 
+    // ------------------------ VM + VALUES + KEY STRENGTHS ------------------------
     vmData: {
       mission: data.mission?.is_active
         ? {
@@ -47,8 +50,17 @@ export const transformAboutData = (data) => {
             is_active: true,
           }
         : null,
+
+      // ⭐ ADDED KEY STRENGTHS INSIDE vmData
+      keyStrengths: data.key_strengths
+        ? {
+            heading: data.key_strengths.heading,
+            points: data.key_strengths.points || [],
+          }
+        : null,
     },
 
+    // ------------------------ ACHIEVEMENTS SECTION ------------------------
     achievementsData: data.is_achievements
       ? {
           heading: data.achievements.heading,
@@ -59,17 +71,19 @@ export const transformAboutData = (data) => {
         }
       : null,
 
-    faqData: data.is_faq && data.faq
-    ? {
-        heading: data.faq.heading,
-        paragraph: data.faq.paragraph,
-        items: data.faq.items.map((item) => ({
-            id: item.id,
-            title: item.title,
-            description: item.description,
-            is_active: item.is_active,
-        })),
-        }
-    : null,
+    // ------------------------ FAQ SECTION ------------------------
+    faqData:
+      data.is_faq && data.faq
+        ? {
+            heading: data.faq.heading,
+            paragraph: data.faq.paragraph,
+            items: data.faq.items.map((item) => ({
+              id: item.id,
+              title: item.title,
+              description: item.description,
+              is_active: item.is_active,
+            })),
+          }
+        : null,
   };
 };

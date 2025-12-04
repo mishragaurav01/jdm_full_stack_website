@@ -19,13 +19,15 @@ const fetchServiceData = async () => {
     const data = await res.json();
     if (data.error) throw new Error(data.error);
 
-    const baseUrl = process.env.NEXT_PUBLIC_API_URL; // e.g., 'https://example.com/'
+    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL; // e.g., 'https://example.com/'
 
     // Assume data is an array of services
     const processedData = data.map(service => ({
       ...service,
       image: service.image?.startsWith('http') ? service.image : `${baseUrl}${service.image}`,
     }));
+
+    console.log("Processed Service Data: ", processedData);
 
     return processedData;
   } catch (err) {

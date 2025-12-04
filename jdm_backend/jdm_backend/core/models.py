@@ -156,6 +156,8 @@ class AboutPageContent(models.Model):
     values_heading = models.CharField(max_length=255)
     values_image = models.ImageField(upload_to="about/values/")
     values_points = models.JSONField(default=list)
+    key_strengths_heading = models.CharField(max_length=255, default="Our Key Strengths")
+    key_strengths_points = models.JSONField(default=list)   
     # achievements = models.JSONField(default=list)
     achievements_heading = models.CharField(max_length=200, default="Achievements")
     team_heading = models.CharField(max_length=200, default="Our Team")
