@@ -68,15 +68,25 @@ class HomePageContent(models.Model):
             raise ValidationError("You can only select up to 6 services.")
 
 
-class ServiceItem(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
-    home = models.ForeignKey(HomePageContent, related_name='services', on_delete=models.CASCADE)
-    title = models.CharField(max_length=200)
-    image = models.ImageField(upload_to='services/')
-    is_active = models.BooleanField(default=True)  # Toggle visibility
+class HomeServiceOrder(models.Model):
+    home = models.ForeignKey(HomePageContent, on_delete=models.CASCADE)
+    service = models.ForeignKey("Service", on_delete=models.CASCADE)  # FIXED
+    position = models.PositiveIntegerField(default=0)
 
-    def __str__(self):
-        return self.title
+    class Meta:
+        ordering = ['position']
+
+
+
+# class ServiceItem(models.Model):
+#     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)
+#     home = models.ForeignKey(HomePageContent, related_name='services', on_delete=models.CASCADE)
+#     title = models.CharField(max_length=200)
+#     image = models.ImageField(upload_to='services/')
+#     is_active = models.BooleanField(default=True)  # Toggle visibility
+
+#     def __str__(self):
+#         return self.title
     
 class ClienteleItem(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid4, editable=False)

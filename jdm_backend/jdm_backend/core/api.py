@@ -4,7 +4,7 @@ from ninja import NinjaAPI, Form, File
 from ninja.files import UploadedFile
 from typing import Optional
 from ninja.errors import HttpError
-from .models import HomePageContent, AboutPageContent, Job, News, JobApplication, Service, ServiceBenefit, ValueAddedService, TeamMember, GalleryEvent, ContactInfo, ContactQuery, IndustrySpecification, Industry
+from .models import HomePageContent, HomeServiceOrder, AboutPageContent, Job, News, JobApplication, Service, ServiceBenefit, ValueAddedService, TeamMember, GalleryEvent, ContactInfo, ContactQuery, IndustrySpecification, Industry
 from .schemas import HomePageSchema, AboutPageSchema, JobSchema, NewsSchema, JobApplicationSchema, ServiceSchema, ValueAddedServiceSchema, TeamMemberSchema,GalleryEventSchema, ContactInfoSchema , ContactQuerySchema, IndustrySchema, IndustrySpecificationSchema
 import json
 from django.shortcuts import get_object_or_404
@@ -13,6 +13,16 @@ from django.shortcuts import get_object_or_404
 
 api = NinjaAPI(csrf=True, urls_namespace="core-api")
 
+# Highlight JDM Text Utility
+# def highlight_jdm(text):
+#     if not text:
+#         return text
+
+    # Order matters: replace "JDM Group" first, then "JDM"
+    # text = text.replace("JDM Group", "<span class='jdm-highlight'>JDM Group</span>")
+    # text = text.replace("JDM", "<span class='jdm-highlight'>JDM</span>")
+    # return text
+
 @api.get("/home/", response=HomePageSchema)
 def get_home(request):
     home = HomePageContent.objects.first()  # Get the first instance of HomePageContent
@@ -20,73 +30,95 @@ def get_home(request):
     if not home:
         return HttpError(404, "Home page content not found.")
 
+    # 🔹 Try to use ordered services from HomeServiceOrder
+    ordered = HomeServiceOrder.objects.filter(home=home).order_by("position")
+
+    if ordered.exists():
+        # Use the custom order (max 8 for home page)
+        services_items = [
+            {
+                "id": hs.service.id,
+                "title": hs.service.title,
+                "image": hs.service.image.url if hs.service.image else None,
+            }
+            for hs in ordered[:8]
+        ]
+    else:
+        # Fallback: old behaviour, in case no HomeServiceOrder records
+        services_items = [
+            {
+                "id": service.id,
+                "title": service.title,
+                "image": service.image.url if service.image else None,
+            }
+            for service in home.selected_services.all()
+        ]
 
     return {
         "hero": {
             "video_url": home.hero_video.url if home.hero_video else None,
-            "image_url": home.hero_image.url if home.hero_image else None
+            "image_url": home.hero_image.url if home.hero_image else None,
         },
         "services": {
             "heading": home.services_heading,
-            "items": [
-                {
-                    "id": service.id,
-                    "title": service.title,
-                    "image": service.image.url if service.image else None
-                } for service in home.selected_services.all()
-            ]
+            # ✅ Now using ordered list
+            "items": services_items,
         },
         "journey": {
             "heading": home.journey_heading,
-            "video_url": home.journey_video.url if home.journey_video else None
+            "video_url": home.journey_video.url if home.journey_video else None,
         },
         "clientele": {
             "heading": home.clientele_heading,
-            "items": [item.logo.url for item in home.clientele.all()]
+            "items": [item.logo.url for item in home.clientele.all()],
         },
         "associations": {
             "heading": home.associations_heading,
-            "items": [item.logo.url for item in home.associations.all()]
+            "items": [item.logo.url for item in home.associations.all()],
         },
         "affiliations": {
             "heading": home.affiliations_heading,
-            "items": [item.logo.url for item in home.affiliations.all()]
+            "items": [item.logo.url for item in home.affiliations.all()],
         },
         "sea_partners": {
             "heading": home.sea_partners_heading,
-            "items": [item.logo.url for item in home.sea_partners.all()]
+            "items": [item.logo.url for item in home.sea_partners.all()],
         },
         "air_partners": {
             "heading": home.air_partners_heading,
-            "items": [item.logo.url for item in home.air_partners.all()]
+            "items": [item.logo.url for item in home.air_partners.all()],
         },
         "locations": {
             "heading": home.locations_heading,
-            "items": [{
-                "id": loc.id,
-                "city": loc.city,
-                "address": loc.address,
-                "phone": loc.phone,
-                "email": loc.email,
-                "image": loc.image.url,
-                "place": loc.place
-            } for loc in home.locations.all()]
+            "items": [
+                {
+                    "id": loc.id,
+                    "city": loc.city,
+                    "address": loc.address,
+                    "phone": loc.phone,
+                    "email": loc.email,
+                    "image": loc.image.url,
+                    "place": loc.place,
+                }
+                for loc in home.locations.all()
+            ],
         },
         "achievements": {
             "heading": home.achievements_heading,
             "items": [
-            {
-                "id": ach.id,
-                "title": ach.title,
-                "count": ach.count,
-                "icon": ach.icon.url,
-                "delay": ach.delay,
-                "suffix": ach.suffix,
-                "prefix": ach.prefix,
-                "is_active": ach.is_active
-            } for ach in home.achievements.all()
-            if ach.is_active
-            ]
+                {
+                    "id": ach.id,
+                    "title": ach.title,
+                    "count": ach.count,
+                    "icon": ach.icon.url,
+                    "delay": ach.delay,
+                    "suffix": ach.suffix,
+                    "prefix": ach.prefix,
+                    "is_active": ach.is_active,
+                }
+                for ach in home.achievements.all()
+                if ach.is_active
+            ],
         },
         "is_active": home.is_active,
         "is_hero": home.is_hero,
@@ -100,16 +132,6 @@ def get_home(request):
         "is_locations": home.is_locations,
         "is_achievements": home.is_achievements,
         "is_news": home.is_news,
-
-        # "newss": [
-        #     {
-        #         "id": news.id,
-        #         "title": news.title,
-        #         "tag": news.tag,
-        #         "date": news.date.isoformat(),
-        #         "image": news.image.url
-        #     } for news in home.newss.all()
-        # ]
     }
 
 @api.get("/about/", response=AboutPageSchema)
@@ -287,12 +309,19 @@ def get_services(request):
     services = Service.objects.all()
     return [
         {
-            **service.__dict__,
-            "image": service.image.url if service.image else None,
-            "benefits": [{"text": b.text} for b in service.benefits.all()]
+            "id": s.id,
+            "title": s.title,
+            "image": s.image.url if s.image else None,
+            "description": s.description,
+            "icon": s.icon,
+            "description1": s.description1,
+            "heading": s.heading,
+            "description2": s.description2,
+            "benefits": [{"text": b.text} for b in s.benefits.all()],
         }
-        for service in services
+        for s in services
     ]
+
 
 @api.get("/services/{service_id}/", response=ServiceSchema)
 def get_service_by_id(request, service_id: str):

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import HomePageContent, ServiceItem, ClienteleItem, AssociationItem, AffiliationItem, SeaPartnerItem, AirPartnerItem, Location, Achievement, News, AboutPageContent, FAQ, Job, JobApplication, Service, ServiceBenefit, ValueAddedService, TeamMember, GalleryPhoto, GalleryEvent, ContactInfo, ContactQuery, IndustrySpecification, Industry
+from .models import HomePageContent, ClienteleItem, AssociationItem, AffiliationItem, SeaPartnerItem, AirPartnerItem, Location, Achievement, News, AboutPageContent, FAQ, Job, JobApplication, Service, ServiceBenefit, ValueAddedService, TeamMember, GalleryPhoto, GalleryEvent, ContactInfo, ContactQuery, IndustrySpecification, Industry
 from django.utils.html import format_html
 from django import forms
 from django.core.exceptions import ValidationError
@@ -27,16 +27,16 @@ class HomePageContentForm(forms.ModelForm):
             raise ValidationError("You can only select up to 6 services.")
         return selected
 
-class ServiceItemInline(admin.TabularInline):
-    model = ServiceItem
-    extra = 1
-    readonly_fields = ['preview']  # This makes the image preview read-only
+# class ServiceItemInline(admin.TabularInline):
+#     model = ServiceItem
+#     extra = 1
+#     readonly_fields = ['preview']  # This makes the image preview read-only
 
-    def preview(self, obj):
-        if obj.image:
-            return format_html('<img src="{}" width="100" height="auto" style="object-fit: contain;" />', obj.image.url)
-        return "-"
-    preview.short_description = "Image Preview" 
+#     def preview(self, obj):
+#         if obj.image:
+#             return format_html('<img src="{}" width="100" height="auto" style="object-fit: contain;" />', obj.image.url)
+#         return "-"
+#     preview.short_description = "Image Preview" 
  
 class ClienteleItemInline(admin.TabularInline):
     model = ClienteleItem
@@ -128,7 +128,7 @@ class HomePageContentAdmin(admin.ModelAdmin):
     form = HomePageContentForm
     list_display = ('id', 'created_at', 'updated_at')
     search_fields = ('services_heading', 'journey_heading', 'clientele_heading')
-    inlines = [ServiceItemInline, ClienteleItemInline, AssociationItemInline, AffiliationItemInline, AirPartnerItemInline, LocationInline, AchievementInline]
+    inlines = [ClienteleItemInline, AssociationItemInline, AffiliationItemInline, AirPartnerItemInline, LocationInline, AchievementInline]
     readonly_fields = ('created_at', 'updated_at')
 
 
