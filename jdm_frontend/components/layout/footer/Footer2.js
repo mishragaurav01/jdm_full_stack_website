@@ -5,6 +5,22 @@ import Link from "next/link";
 export default function Footer2() {
   return (
     <>
+      {/* ======== Inline Styling For <span> ========= */}
+      <style jsx>{`
+        .footer-section .list-area li span {
+          color: #b5271fbd;       /* same as link color */
+          font-size: 15px;
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          cursor: default;      /* not clickable */
+          transition: none !important;
+        }
+        .footer-section .list-area li span:hover {
+          transform: none !important; /* stop sliding */
+        }
+      `}</style>
+
       <footer className="footer-section bg-cover">
         <div className="container">
           <div className="footer-widgets-wrapper">
@@ -48,19 +64,19 @@ export default function Footer2() {
                         FAQ’S
                       </Link>
                     </li>
-                    {/* <li> */}
-                      <a
-                        className="theme-btn w-100"
-                        href="/assets/doc/JDM Profile_2025.pdf"
-                        download="JDM Profile_2025.pdf"
-                      >
-                        Download Profile
-                        <i className="fa-regular fa-arrow-right"></i>
-                      </a>
-                    {/* </li> */}
+
+                    <a
+                      className="theme-btn w-100"
+                      href="/assets/doc/JDM Profile_2025.pdf"
+                      download="JDM Profile_2025.pdf"
+                    >
+                      Download Profile
+                      <i className="fa-regular fa-arrow-right"></i>
+                    </a>
                   </ul>
                 </div>
               </div>
+
               <div
                 className="col-xl-3 col-lg-6 col-md-6 ps-lg-5 wow fadeInUp"
                 data-wow-delay=".6s"
@@ -100,12 +116,7 @@ export default function Footer2() {
                         Customs Brokerage
                       </Link>
                     </li>
-                    {/* <li>
-                      <Link href="/service-details/courier-services">
-                        <i className="fa-solid fa-chevrons-right" />
-                        Courier Services
-                      </Link>
-                    </li> */}
+
                     <li>
                       <Link href="/service-details/warehousing">
                         <i className="fa-solid fa-chevrons-right" />
@@ -115,6 +126,8 @@ export default function Footer2() {
                   </ul>
                 </div>
               </div>
+
+              {/* ===== NOT CLICKABLE SECTION WITH <span> STYLING ===== */}
               <div
                 className="col-xl-4 col-lg-6 col-md-7 wow fadeInUp fst-italic"
                 data-wow-delay=".8s"
@@ -125,38 +138,39 @@ export default function Footer2() {
                   </div>
                   <ul className="list-area">
                     <li>
-                      <a>
+                      <span>
                         <i className="fa-solid fa-chevrons-right" />
                         JDM Worldwide Freight Solutions Pvt. Ltd.
-                      </a>
+                      </span>
                     </li>
                     <li>
-                      <a>
+                      <span>
                         <i className="fa-solid fa-chevrons-right" />
                         JDM Cargo Planners Pvt. Ltd.
-                      </a>
+                      </span>
                     </li>
                     <li>
-                      <a>
+                      <span>
                         <i className="fa-solid fa-chevrons-right" />
                         JDM Express Pvt. Ltd.
-                      </a>
+                      </span>
                     </li>
                     <li>
-                      <a>
+                      <span>
                         <i className="fa-solid fa-chevrons-right" />
                         Arrow Transport Service
-                      </a>
+                      </span>
                     </li>
                     <li>
-                      <a>
+                      <span>
                         <i className="fa-solid fa-chevrons-right" />
                         AS Transport Service
-                      </a>
+                      </span>
                     </li>
                   </ul>
                 </div>
               </div>
+
               <div
                 className="col-xl-3 col-lg-4 col-md-4 ps-lg-5 wow fadeInUp"
                 data-wow-delay="1s"
@@ -185,12 +199,13 @@ export default function Footer2() {
                       </Link>
                     </li>
                   </ul>
+
                   <div className="social-icon d-flex align-items-center">
                     <Link href="https://www.facebook.com/profile.php?id=100090951694492">
                       <i className="fab fa-facebook-f" />
                     </Link>
                     <Link href="https://x.com/JDMGroup">
-                      <FontAwesomeIcon icon={faXTwitter}/>
+                      <FontAwesomeIcon icon={faXTwitter} />
                     </Link>
                     <Link href="https://www.instagram.com/we_jdm/">
                       <i className="fab fa-instagram" />
@@ -206,6 +221,7 @@ export default function Footer2() {
               </div>
             </div>
           </div>
+
           <div className="footer-bottom">
             <p>
               © All Copyright {new Date().getFullYear()} by{" "}

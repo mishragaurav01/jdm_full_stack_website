@@ -6,10 +6,13 @@ const renderDescription = (text) => {
 };
 
 export default function ServiceDetails1({ service }) {
+  console.log("ServiceDetails1 service prop:", service);
   // Sample categories
 
   // If service is undefined, render a fallback
-  if (!service || !service.image || !service.title || !service.description1) {
+  if (!service || !service.image || !service.title 
+    // || !service.description1
+  ) {
     return (
       <section className="service-details-section section-padding">
         <div className="container">
