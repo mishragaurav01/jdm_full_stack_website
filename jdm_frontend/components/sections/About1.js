@@ -29,10 +29,10 @@ const About1 = ({data}) => {
   return (
     <section className="about-section fix section-padding" id="about">
       <div className="about-shape-1 float-bob-x">
-        <img src="assets/img/about/about-shape-4.png" alt="Decorative shape 1" />
+        {/* <img src="assets/img/about/about-shape-4.png" alt="Decorative shape 1" /> */}
       </div>
       <div className="about-shape-2 float-bob-x">
-        <img src="assets/img/about/about-shape-5.png" alt="Decorative shape 2" />
+        {/* <img src="assets/img/about/about-shape-5.png" alt="Decorative shape 2" /> */}
       </div>
       <div className="container">
         <div className="about-wrapper">

@@ -154,6 +154,7 @@ class AboutPageContent(models.Model):
     heading = models.CharField(max_length=255)
     story_heading = models.CharField(max_length=255)
     story_paragraph = models.TextField()
+    story_points = models.JSONField(default=list)
     founder_image = models.ImageField(upload_to="founder/")
     para1 = models.TextField()
     para2 = models.TextField()

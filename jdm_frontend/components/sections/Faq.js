@@ -5,35 +5,104 @@ import { useState, useEffect } from "react";
 const defaultFaqItems = [
   {
     id: 1,
-    question: "How long should a business plan be?",
-    answer: "It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.",
+    question: "Why should you prefer JDM Group?",
+    answer:
+      "We are far better than other CHAs because we have all three kinds of services collectively that others don't have (Own Brokerage License, Own Transportation, Own Warehouse). Our warehouse & office in Delhi are close to the airport, enabling superior service especially during COVID-19. We saved customers crores in demurrages by clearing cargo during lockdown and storing it in our warehouse until their facilities reopened.",
     delay: ".1s",
   },
   {
     id: 2,
-    question: "What are the different stages of a construction project?",
-    answer: "It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.",
-    delay: ".3s",
+    question: "What types of freight services do you offer?",
+    answer:
+      "We offer comprehensive freight solutions including Air Freight, Ocean Freight, Rail Transport, Road Transport, and Multimodal services tailored to your business needs.",
+    delay: ".2s",
   },
   {
     id: 3,
-    question: "What are the different stages of a construction project?",
-    answer: "It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.",
-    delay: ".5s",
+    question: "Do you provide international freight forwarding?",
+    answer:
+      "Yes, we specialize in international freight forwarding with end-to-end services including pickup, documentation, customs clearance, and final delivery.",
+    delay: ".3s",
   },
   {
     id: 4,
-    question: "What are the different stages of a construction project?",
-    answer: "It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.",
-    delay: ".6s",
+    question: "What industries do you serve?",
+    answer:
+      "We cater to a wide range of industries including Automotive, Electronics, Agriculture, Pharmaceuticals, Textile, Steel & Iron, Perishables, and more.",
+    delay: ".4s",
   },
   {
     id: 5,
-    question: "What are the different stages of a construction project?",
-    answer: "It is a long established fact that a reader will be distracted the readable content of a page when looking at layout the point of using lorem the is Ipsum less normal distribution of letters.",
+    question: "How do I get a freight quote?",
+    answer:
+      "You can request a free quote through our website or contact our customer service team with your shipment details.",
+    delay: ".5s",
+  },
+  {
+    id: 6,
+    question: "What customs brokerage services do you offer?",
+    answer:
+      "We handle import/export clearance, HS code classification, duty & tax calculations, license handling, and regulatory compliance.",
+    delay: ".6s",
+  },
+  {
+    id: 7,
+    question: "How long does the customs clearance process take?",
+    answer:
+      "Customs clearance timelines depend on shipment type and origin/destination. Typically, clearance is completed within 1–3 business days.",
     delay: ".7s",
   },
+  {
+    id: 8,
+    question: "Can you help with restricted or regulated goods?",
+    answer:
+      "Yes, we assist with documentation, licenses, and clearances for restricted or regulated commodities.",
+    delay: ".8s",
+  },
+  {
+    id: 9,
+    question: "What documents are required for customs clearance?",
+    answer:
+      "Essential documents include the commercial invoice, packing list, bill of lading/airway bill, and any relevant certificates or licenses.",
+    delay: ".9s",
+  },
+  {
+    id: 10,
+    question: "Do you offer support for post-clearance audits or disputes?",
+    answer:
+      "Yes, our team can represent you in audits and assist with customs dispute resolution.",
+    delay: "1.0s",
+  },
+  {
+    id: 11,
+    question: "What areas do you cover for road transportation?",
+    answer:
+      "We offer pan-India and cross-border road transportation with express and standard delivery options.",
+    delay: "1.1s",
+  },
+  {
+    id: 12,
+    question: "Do you offer temperature-controlled or special handling transport?",
+    answer:
+      "Yes, we provide refrigerated transport, high-value cargo handling, and specialized equipment for delicate or oversized shipments.",
+    delay: "1.2s",
+  },
+  {
+    id: 13,
+    question: "Is your fleet GPS-enabled?",
+    answer:
+      "Yes, all our transport vehicles are equipped with GPS for real-time tracking and route optimization.",
+    delay: "1.3s",
+  },
+  {
+    id: 14,
+    question: "Do you handle perishable or time-sensitive shipments?",
+    answer:
+      "Yes, we specialize in the timely delivery of perishables including fruits, vegetables, flowers, and pharmaceuticals.",
+    delay: "1.4s",
+  },
 ];
+
 
 export default function Faq() {
   const [isAccordion, setIsAccordion] = useState(1);

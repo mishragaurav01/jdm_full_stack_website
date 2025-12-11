@@ -139,21 +139,29 @@ def get_about(request):
     about = AboutPageContent.objects.first()
     if not about:
         return HttpError(404, "About page content not found.")
-    
-    # Safely parse values_points if stored as a string
-    points = about.values_points
-    if isinstance(points, str):
+
+    # Parse story points
+    story_points = about.story_points
+    if isinstance(story_points, str):
         try:
-            points = json.loads(points)
-        except json.JSONDecodeError:
-            points = []
+            story_points = json.loads(story_points)
+        except:
+            story_points = []
+
+    # Parse values points
+    values_points = about.values_points
+    if isinstance(values_points, str):
+        try:
+            values_points = json.loads(values_points)
+        except:
+            values_points = []
 
     return {
         "heading": about.heading,
         "story": {
             "heading": about.story_heading,
             "paragraph": about.story_paragraph,
-            "points": points,
+            "points": story_points,
             "founder_image_url": about.founder_image.url if about.founder_image else None,
             "para1": about.para1,
             "para2": about.para2
@@ -172,7 +180,7 @@ def get_about(request):
         },
         "values": {
             "heading": about.values_heading,
-            "points": points,
+            "points": values_points,
             "image_url": about.values_image.url if about.values_image else None,
             "is_active": about.is_values
         },
@@ -184,36 +192,36 @@ def get_about(request):
                     "id": item.id,
                     "title": item.title,
                     "description": item.description,
-                    "is_active" : item.is_active
-                } for item in about.faqs.all()
-                if item.is_active
+                    "is_active": item.is_active
+                }
+                for item in about.faqs.all() if item.is_active
             ]
         },
         "achievements": {
             "heading": about.achievements_heading,
             "items": [
-            {
-                "id": ach.id,
-                "title": ach.title,
-                "count": ach.count,
-                "icon": ach.icon.url,
-                "delay": ach.delay,
-                "suffix": ach.suffix,
-                "prefix": ach.prefix,
-                "is_active": ach.is_active
-            } for ach in about.achievements.all()
-            if ach.is_active
+                {
+                    "id": ach.id,
+                    "title": ach.title,
+                    "count": ach.count,
+                    "icon": ach.icon.url,
+                    "delay": ach.delay,
+                    "suffix": ach.suffix,
+                    "prefix": ach.prefix,
+                    "is_active": ach.is_active
+                }
+                for ach in about.achievements.all() if ach.is_active
             ]
         },
         "key_strengths": {
             "heading": about.key_strengths_heading,
             "points": about.key_strengths_points,
         },
-        "team_heading" : about.team_heading,
-        "is_active" : about.is_active,
-        "is_story" : about.is_story,
-        "is_faq" : about.is_faq,
-        "is_achievements" : about.is_achievements
+        "team_heading": about.team_heading,
+        "is_active": about.is_active,
+        "is_story": about.is_story,
+        "is_faq": about.is_faq,
+        "is_achievements": about.is_achievements
     }
 
 @api.get("/jobs/", response=list[JobSchema])

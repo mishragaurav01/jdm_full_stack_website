@@ -26,6 +26,7 @@ export default function Counter1({ counterData }) {
                 <span className="count">
                   <CounterNumber count={item.count} />
                 </span>
+                <br />
                 {item.suffix}
               </h2>
               <p
