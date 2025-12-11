@@ -5,7 +5,7 @@ const GallerySection = ({
   selectedTitle,
   onTitleChange,
   isLoading = false,
-  fallbackImage = "/fallback-image.png",
+  // fallbackImage = "/fallback-image.png",
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedImage, setSelectedImage] = useState(null);
@@ -74,7 +74,7 @@ const GallerySection = ({
                           loading="lazy"
                           onClick={() => handleImageClick(image)}
                           onError={(e) => {
-                            e.target.src = fallbackImage;
+                            // e.target.src = fallbackImage;
                           }}
                         />
                         <p>{image.caption}</p>
@@ -128,7 +128,7 @@ const GallerySection = ({
                       objectFit: "contain",
                     }}
                     onError={(e) => {
-                      e.target.src = fallbackImage;
+                      // e.target.src = fallbackImage;
                     }}
                   />
                 </div>
@@ -179,7 +179,7 @@ const GallerySection = ({
                     loading="lazy"
                     onClick={() => handleImageClick(image)}
                     onError={(e) => {
-                      e.target.src = fallbackImage;
+                      // e.target.src = fallbackImage;
                     }}
                   />
                   <p>{image.caption}</p>
@@ -229,7 +229,7 @@ const GallerySection = ({
                     objectFit: "contain",
                   }}
                   onError={(e) => {
-                    e.target.src = fallbackImage;
+                    // e.target.src = fallbackImage;
                   }}
                 />
               </div>

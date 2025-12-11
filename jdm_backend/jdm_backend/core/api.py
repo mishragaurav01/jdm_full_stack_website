@@ -327,10 +327,17 @@ def get_services(request):
 def get_service_by_id(request, service_id: str):
     service = get_object_or_404(Service, id=service_id)
     return {
-        **service.__dict__,
+        "id": service.id,
+        "title": service.title,
         "image": service.image.url if service.image else None,
-        "benefits": [{"text": b.text} for b in service.benefits.all()]
+        "description": service.description,
+        "description1": service.description1,
+        "description2": service.description2,
+        "heading": service.heading,
+        "icon": service.icon,
+        "benefits": [{"text": b.text} for b in service.benefits.all()],
     }
+
 
 # VAS endpoints
 @api.get("/vas/", response=list[ValueAddedServiceSchema])
