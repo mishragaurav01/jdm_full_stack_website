@@ -145,7 +145,7 @@ export default function Faq() {
         className="faq-section fix section-padding section-bg-2 bg-cover"
       >
         <div className="track-shape float-bob-x">
-          <img src="assets/img/track.png" alt="img" />
+          {/* <img src="assets/img/track.png" alt="img" /> */}
         </div>
         <div className="container">
           <div className="faq-wrapper">

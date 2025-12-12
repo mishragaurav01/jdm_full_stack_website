@@ -125,7 +125,7 @@ const CareerSection = ({ jobs }) => {
     closeModal();
   } catch (error) {
     console.error("Error submitting application:", error);
-    alert("Failed to submit application. Please try again.");
+    alert("Failed to submit application. Please try again."); 
   }
 };
 

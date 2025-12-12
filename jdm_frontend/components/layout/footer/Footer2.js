@@ -5,19 +5,30 @@ import Link from "next/link";
 export default function Footer2() {
   return (
     <>
-      {/* ======== Inline Styling For <span> ========= */}
+      {/* ======== Inline Styling & Hover Disable for JDM Section ========= */}
       <style jsx>{`
+        /* Disable hover animation ONLY for JDM Group list */
+        .no-hover-list .list-area li,
+        .no-hover-list .list-area li span {
+          transition: none !important;
+        }
+
+        .no-hover-list .list-area li:hover,
+        .no-hover-list .list-area li:hover span,
+        .no-hover-list .list-area li span:hover {
+          transform: none !important;
+          margin-left: 0 !important;
+          padding-left: 0 !important;
+        }
+
+        /* Styling for span items */
         .footer-section .list-area li span {
-          color: #b5271fbd;       /* same as link color */
+          color: #b5271fbd;
           font-size: 15px;
           display: flex;
           align-items: center;
           gap: 6px;
-          cursor: default;      /* not clickable */
-          transition: none !important;
-        }
-        .footer-section .list-area li span:hover {
-          transform: none !important; /* stop sliding */
+          cursor: default;
         }
       `}</style>
 
@@ -25,6 +36,8 @@ export default function Footer2() {
         <div className="container">
           <div className="footer-widgets-wrapper">
             <div className="row">
+
+              {/* QUICK LINKS */}
               <div
                 className="col-xl-2 col-lg-6 col-md-6 wow fadeInUp"
                 data-wow-delay=".4s"
@@ -77,6 +90,7 @@ export default function Footer2() {
                 </div>
               </div>
 
+              {/* SERVICES */}
               <div
                 className="col-xl-3 col-lg-6 col-md-6 ps-lg-5 wow fadeInUp"
                 data-wow-delay=".6s"
@@ -87,38 +101,37 @@ export default function Footer2() {
                   </div>
                   <ul className="list-area">
                     <li>
-                      <Link href="/service-details/air-freight">
+                      <Link href="/service-details/b529d9b4-f157-447c-8743-0c568c69fe76">
                         <i className="fa-solid fa-chevrons-right" />
                         Air Freight
                       </Link>
                     </li>
                     <li>
-                      <Link href="/service-details/ocean-freight">
+                      <Link href="/service-details/e7e1a920-529b-4ae8-b4e1-f018020a74db">
                         <i className="fa-solid fa-chevrons-right" />
                         Ocean Freight
                       </Link>
                     </li>
                     <li>
-                      <Link href="/service-details/train-freight">
+                      <Link href="/service-details/ff89d880-3f08-410b-a721-c1becbfc56de">
                         <i className="fa-solid fa-chevrons-right" />
                         Rail Freight
                       </Link>
                     </li>
                     <li>
-                      <Link href="/service-details/road-transportation">
+                      <Link href="/service-details/048e1889-75ab-4b4a-a85e-3c47c218142f">
                         <i className="fa-solid fa-chevrons-right" />
                         Road Transportation
                       </Link>
                     </li>
                     <li>
-                      <Link href="/service-details/custom-clearance">
+                      <Link href="/service-details/788a7a18-e241-44ad-b712-05d6e3efd345">
                         <i className="fa-solid fa-chevrons-right" />
                         Customs Brokerage
                       </Link>
                     </li>
-
                     <li>
-                      <Link href="/service-details/warehousing">
+                      <Link href="/service-details/0a514530-d496-4621-9f53-3f473700a69f">
                         <i className="fa-solid fa-chevrons-right" />
                         Warehousing
                       </Link>
@@ -127,9 +140,9 @@ export default function Footer2() {
                 </div>
               </div>
 
-              {/* ===== NOT CLICKABLE SECTION WITH <span> STYLING ===== */}
+              {/* JDM GROUP — no hover animation */}
               <div
-                className="col-xl-4 col-lg-6 col-md-7 wow fadeInUp fst-italic"
+                className="col-xl-4 col-lg-6 col-md-7 wow fadeInUp fst-italic no-hover-list"
                 data-wow-delay=".8s"
               >
                 <div className="single-footer-widget">
@@ -171,6 +184,7 @@ export default function Footer2() {
                 </div>
               </div>
 
+              {/* CONTACT INFO */}
               <div
                 className="col-xl-3 col-lg-4 col-md-4 ps-lg-5 wow fadeInUp"
                 data-wow-delay="1s"
@@ -181,7 +195,10 @@ export default function Footer2() {
                   </div>
                   <ul className="list-area">
                     <li>
-                      <Link target="_blank" href="https://www.google.com/maps?ll=28.545654,77.084271&z=12&t=m&hl=en&gl=JP&mapclient=embed&cid=13113964979499734147">
+                      <Link
+                        target="_blank"
+                        href="https://www.google.com/maps?ll=28.545654,77.084271&z=12&t=m&hl=en&gl=JP&mapclient=embed&cid=13113964979499734147"
+                      >
                         <i className="fa-sharp fa-solid fa-location-dot" />
                         A-75, Road No. 4, Street No. 6, Mahipalpur Extn., New Delhi 110037
                       </Link>
@@ -219,6 +236,7 @@ export default function Footer2() {
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
 

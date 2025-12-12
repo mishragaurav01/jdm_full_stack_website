@@ -21,11 +21,20 @@ export default function Menu() {
       title: "Services",
       href: "/service",
       submenu: servicesData
-        ? servicesData.map((service) => ({
-            title: service.title,
-            href: `/service-details/${service.slug || service.id}`,
-          }))
-        : null,
+  ? [
+      ...servicesData.map((service) => ({
+        title: service.title,
+        href: `/service-details/${service.slug || service.id}`,
+      })),
+
+      // ⭐ Add Value Added Service (special page)
+      {
+        title: "Value Added Services",
+        href: "/value-added-services",
+      }
+    ]
+  : null,
+
     },
     { title: "Gallery", href: "/gallery", submenu: null },
     // Conditionally add Industry menu if is_industry === true
