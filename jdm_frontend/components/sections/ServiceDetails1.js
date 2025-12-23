@@ -26,6 +26,10 @@ export default function ServiceDetails1({ service }) {
   return (
     <>
       <section className="service-details-section section-padding">
+        <div className="text-center mb-2 mt-3">
+          <h2 className="service-title">{service.title}</h2>
+        </div>
+
         <div className="container">
           <div className="service-details-wrapper">
             <div className="row g-4">
@@ -52,9 +56,9 @@ export default function ServiceDetails1({ service }) {
                 </div>
               </div>
             </div>
-            {(service.heading) &&
+            {service.heading === "Warehousing of Goods in Public and Private Bonded Warehouses" && (
               <h5 className="pt-3 mt-4">{service.heading}</h5>
-            }
+            )}
             {/* <p className="cont" dangerouslySetInnerHTML={{
                 __html: renderDescription(service.description2),
               }}/> */}

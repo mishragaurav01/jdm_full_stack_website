@@ -260,6 +260,11 @@ class Service(models.Model):
     description1 = models.TextField()
     heading = models.CharField(max_length=255)
     description2 = models.TextField()
+    
+    position = models.PositiveIntegerField(default=0)  # 👈 ADD THIS
+
+    class Meta:
+        ordering = ["position"]
 
     def __str__(self):
         return self.title

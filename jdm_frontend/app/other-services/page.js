@@ -1,11 +1,11 @@
-"use client";
-import React, { useState } from "react";
-import Head from "next/head";
-import {tabs} from "@/util/otherService"
-import Layout from "../../components/layout/Layout";
+// "use client";
+// import React, { useState } from "react";
+// import Head from "next/head";
+// import {tabs} from "@/util/otherService"
+// import Layout from "../../components/layout/Layout";
 
-const OtherServices = () => {
-  const [activeTab, setActiveTab] = useState("consultancy"); // Default tab
+// const OtherServices = () => {
+//   const [activeTab, setActiveTab] = useState("consultancy"); // Default tab
 
   // Define tab data with headings and content
   // const tabs = [
@@ -91,127 +91,127 @@ const OtherServices = () => {
   // ];
 
 
-  return (
-    <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Value Added Services">
-      <Head>
-        <title>Other Services | JDM Logistics</title>
-        <meta
-          name="description"
-          content="Explore JDM Logistics' additional services including consultancy, SVB, drawback, cargo insurance, and online filing."
-        />
-      </Head>
+//   return (
+//     <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Value Added Services">
+//       <Head>
+//         <title>Other Services | JDM Logistics</title>
+//         <meta
+//           name="description"
+//           content="Explore JDM Logistics' additional services including consultancy, SVB, drawback, cargo insurance, and online filing."
+//         />
+//       </Head>
 
-      {/* Hero Section */}
-      <section className="hero" id="other-services">
-        {/* Tab Section with Horizontal Menu at Top of Content */}
-        <div className="services-section">
-          <div className="container">
-            <div className="tab-container">
-              <div className="content-box">
-                <ul className="sector-nav wow fadeInUp" data-wow-delay=".2s">
-                  {/* (tabs &&  */}
-                    {tabs.map((tab) => (
-                      <li
-                        key={tab.id}
-                        className={activeTab === tab.id ? "active" : ""}
-                      >
-                        <button
-                          onClick={() => setActiveTab(tab.id)}
-                          className="tab-button"
-                        >
-                          {tab.title}
-                        </button>
-                      </li>
-                    ))}
-                  {/* ) */}
-                </ul>
-                <div className="tab-content wow fadeInUp" data-wow-delay=".4s">
-                  {tabs.find((tab) => tab.id === activeTab)?.content}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+//       {/* Hero Section */}
+//       <section className="hero" id="other-services">
+//         {/* Tab Section with Horizontal Menu at Top of Content */}
+//         <div className="services-section">
+//           <div className="container">
+//             <div className="tab-container">
+//               <div className="content-box">
+//                 <ul className="sector-nav wow fadeInUp" data-wow-delay=".2s">
+//                   {/* (tabs &&  */}
+//                     {tabs.map((tab) => (
+//                       <li
+//                         key={tab.id}
+//                         className={activeTab === tab.id ? "active" : ""}
+//                       >
+//                         <button
+//                           onClick={() => setActiveTab(tab.id)}
+//                           className="tab-button"
+//                         >
+//                           {tab.title}
+//                         </button>
+//                       </li>
+//                     ))}
+//                   {/* ) */}
+//                 </ul>
+//                 <div className="tab-content wow fadeInUp" data-wow-delay=".4s">
+//                   {tabs.find((tab) => tab.id === activeTab)?.content}
+//                 </div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </section>
 
-      {/* Inline Styles Inspired by Clientele */}
-      <style jsx>{`
-        .hero {
-          padding: 60px 0;
-        }
-        .container {
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 15px;
-        }
-        .tab-container {
-          display: flex;
-          flex-direction: column;
-          gap: 20px;
-        }
-        .content-box {
-          background: #fff;
-          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          overflow: hidden; /* Ensure rounded corners apply to children */
-        }
-        .sector-nav {
-          display: flex;
-          flex-direction: row; /* Horizontal layout */
-          flex-wrap: wrap;
-          list-style: none;
-          padding: 0;
-          margin: 0;
-          background: #fff;
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        .sector-nav li {
-          display: block;
-          border-left: 1px solid var(--bs-gray-200);
-          border-right: 1px solid var(--bs-gray-200);
-        }
-        .sector-nav li button {
-          padding: 12px 20px;
-          font-size: 15px;
-          font-weight: 500;
-          color: #333;
-          background: none;
-          border: none;
-          border-bottom: 1px solid #eee;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          font-weight: bold;
-        }
-        .sector-nav li:last-child button {
-          border-bottom: none;
-        }
-        .sector-nav li:hover button,
-        .sector-nav li.active button {
-          background: var(--theme2, #f59e0b);
-          color: var(--theme);
-        }
-        .tab-content {
-          padding: 30px;
-          min-height:220px;
-        }
-        .tab-content p {
-          margin: 0 0 15px;
-          font-size: 16px;
-          color: #666;
-          line-height: 1.6;
-        }
-        @media (max-width: 767px) {
-          .sector-nav {
-            flex-direction: row; /* Keep horizontal on mobile */
-            justify-content: center; /* Center tabs on mobile */
-          }
-          .sector-nav li button {
-            font-size: 14px;
-            padding: 10px 15px;
-          }
-        }
-      `}</style>
-    </Layout>
-  );
-};
+//       {/* Inline Styles Inspired by Clientele */}
+//       <style jsx>{`
+//         .hero {
+//           padding: 60px 0;
+//         }
+//         .container {
+//           max-width: 1200px;
+//           margin: 0 auto;
+//           padding: 0 15px;
+//         }
+//         .tab-container {
+//           display: flex;
+//           flex-direction: column;
+//           gap: 20px;
+//         }
+//         .content-box {
+//           background: #fff;
+//           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//           overflow: hidden; /* Ensure rounded corners apply to children */
+//         }
+//         .sector-nav {
+//           display: flex;
+//           flex-direction: row; /* Horizontal layout */
+//           flex-wrap: wrap;
+//           list-style: none;
+//           padding: 0;
+//           margin: 0;
+//           background: #fff;
+//           box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+//         }
+//         .sector-nav li {
+//           display: block;
+//           border-left: 1px solid var(--bs-gray-200);
+//           border-right: 1px solid var(--bs-gray-200);
+//         }
+//         .sector-nav li button {
+//           padding: 12px 20px;
+//           font-size: 15px;
+//           font-weight: 500;
+//           color: #333;
+//           background: none;
+//           border: none;
+//           border-bottom: 1px solid #eee;
+//           cursor: pointer;
+//           transition: all 0.3s ease;
+//           font-weight: bold;
+//         }
+//         .sector-nav li:last-child button {
+//           border-bottom: none;
+//         }
+//         .sector-nav li:hover button,
+//         .sector-nav li.active button {
+//           background: var(--theme2, #f59e0b);
+//           color: var(--theme);
+//         }
+//         .tab-content {
+//           padding: 30px;
+//           min-height:220px;
+//         }
+//         .tab-content p {
+//           margin: 0 0 15px;
+//           font-size: 16px;
+//           color: #666;
+//           line-height: 1.6;
+//         }
+//         @media (max-width: 767px) {
+//           .sector-nav {
+//             flex-direction: row; /* Keep horizontal on mobile */
+//             justify-content: center; /* Center tabs on mobile */
+//           }
+//           .sector-nav li button {
+//             font-size: 14px;
+//             padding: 10px 15px;
+//           }
+//         }
+//       `}</style>
+//     </Layout>
+//   );
+// };
 
-export default OtherServices;
+// export default OtherServices;
