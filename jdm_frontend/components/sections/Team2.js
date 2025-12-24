@@ -249,28 +249,30 @@ const customStyles = `
     height: 100%;
     display: flex;
     flex-direction: column;
-    // background: #fff;
   }
 
-  /* ===== Image Wrapper (IMPORTANT FIX) ===== */
+  /* ===== Image Wrapper (1:1 FIX) ===== */
   .team-box-items .service-thumb {
-    position: relative;
-    height: 260px;                 /* controls image area */
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+  position: relative;
+  width: 80%;                 /* ✅ half the size */
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;             /* center horizontally */
+  overflow: hidden;
+  padding: 0;
+  border-radius: 3px;
+}
+
 
   .team-box-items .service-thumb img {
     width: 100%;
     height: 100%;
-    object-fit: contain;           /* prevents cutting */
+    object-fit: cover;        /* ✅ uniform crop */
+    object-position: top center; /* keeps face visible */
   }
 
   /* ===== Content ===== */
   .team-box-items .service-content {
-    padding: 0 30px 30px;
+    padding: 20px 30px 30px;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
@@ -296,6 +298,7 @@ const customStyles = `
     color: var(--theme);
   }
 `;
+
 
 const swiperOptions = {
   modules: [Autoplay, Pagination, Navigation],

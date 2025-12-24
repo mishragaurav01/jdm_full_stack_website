@@ -25,6 +25,7 @@ export default function Footer2() {
         .footer-section .list-area li span {
           color: #b5271fbd;
           font-size: 15px;
+          font-weight: 600;
           display: flex;
           align-items: center;
           gap: 6px;
