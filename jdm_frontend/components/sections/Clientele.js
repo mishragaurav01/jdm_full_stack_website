@@ -15,20 +15,20 @@ const Clientele = () => {
       const sectors = [
         { name: "Agriculture", logos: Array.from({ length: 3 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Agriculture/${i + 1}.png`, alt: `Agriculture Logo ${i + 1}` })) },
         { name: "Auto Industries", logos: Array.from({ length: 51 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Auto Industries/${i + 1}.png`, alt: `Auto Industries Logo ${i + 1}` })) },
-        { name: "Aviation", logos: Array.from({ length: 8 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Aviation/${i + 1}.png`, alt: `Aviation Logo ${i + 1}` })) },
+        { name: "Aviation", logos: Array.from({ length: 2 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Aviation/${i + 1}.png`, alt: `Aviation Logo ${i + 1}` })) },
         { name: "Chemicals", logos: Array.from({ length: 9 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Chemicals/${i + 1}.png`, alt: `Chemicals Logo ${i + 1}` })) },
-        { name: "Construction", logos: Array.from({ length: 8 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Construction/${i + 1}.png`, alt: `Construction Logo ${i + 1}` })) },
+        { name: "Construction", logos: Array.from({ length: 4 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Construction/${i + 1}.png`, alt: `Construction Logo ${i + 1}` })) },
         { name: "Electronics", logos: Array.from({ length: 33 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Electronics/${i + 1}.png`, alt: `Electronics Logo ${i + 1}` })) },
         { name: "Energy", logos: Array.from({ length: 11 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Energy/${i + 1}.png`, alt: `Energy Logo ${i + 1}` })) },
-        { name: "Foods", logos: Array.from({ length: 8 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Foods/${i + 1}.png`, alt: `Foods Logo ${i + 1}` })) },
+        { name: "Foods", logos: Array.from({ length: 7 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Foods/${i + 1}.png`, alt: `Foods Logo ${i + 1}` })) },
         { name: "Home Appliance", logos: Array.from({ length: 10 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Home Appliances/${i + 1}.png`, alt: `Home Appliance Logo ${i + 1}` })) },
-        { name: "Luxury", logos: Array.from({ length: 8 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/luxury/${i + 1}.png`, alt: `Luxury Logo ${i + 1}` })) },
-        { name: "Mobile Spare Parts", logos: Array.from({ length: 8 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Mobile and Spare Parts/${i + 1}.png`, alt: `Mobile Spare Parts Logo ${i + 1}` })) },
+        { name: "Luxury", logos: Array.from({ length: 7 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/luxury/${i + 1}.png`, alt: `Luxury Logo ${i + 1}` })) },
+        { name: "Mobile Spare Parts", logos: Array.from({ length: 6 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Mobile and Spare Parts/${i + 1}.png`, alt: `Mobile Spare Parts Logo ${i + 1}` })) },
         { name: "Paper and Packaging", logos: Array.from({ length: 11 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Paper and Packaging/${i + 1}.png`, alt: `Paper and Packaging Logo ${i + 1}` })) },
         { name: "Pharmaceutical", logos: Array.from({ length: 17 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Medical/${i + 1}.png`, alt: `Pharmaceutical Logo ${i + 1}` })) },
         { name: "RMG and Fashion", logos: Array.from({ length: 8 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/RMG and Fassion/${i + 1}.png`, alt: `RMG and Fashion Logo ${i + 1}` })) },
         { name: "Safety and Security", logos: Array.from({ length: 6 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Safety and Security/${i + 1}.png`, alt: `Safety and Security Logo ${i + 1}` })) },
-        { name: "Steel and Iron", logos: Array.from({ length: 22 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Steel and Iron/${i + 1}.png`, alt: `Steel and Iron Logo ${i + 1}` })) },
+        { name: "Steel and Iron", logos: Array.from({ length: 2 }, (_, i) => ({ id: i, src: `/assets/img/customer_logo/Sector_Wise/Steel and Iron/${i + 1}.png`, alt: `Steel and Iron Logo ${i + 1}` })) },
       ];
 
       const countries = [

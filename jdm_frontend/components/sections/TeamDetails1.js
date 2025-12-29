@@ -13,6 +13,8 @@ export default function TeamDetailsPage({ member }) {
   // You can fetch member by ID outside or pass as prop
   const data = member || {};
 
+  
+
   return (
     <section className="team-details-section">
       <div className="container">
@@ -108,7 +110,7 @@ export default function TeamDetailsPage({ member }) {
           width: 400px;
           aspect-ratio: 1 / 1;      /* ✅ SAME RATIO */
           // background: #f2f2f2;
-          border-radius: 16px;
+          // border-radius: 16px;
           display: flex;
           align-items: center;
           justify-content: center;

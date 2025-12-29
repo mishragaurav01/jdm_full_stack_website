@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import Head from "next/head";
 import {tabs} from "@/util/otherService"
 import Layout from "../../components/layout/Layout";
+import MarkdownRenderer from "@/components/MarkdownRenderer";
+import { highlightContent } from "@/util/highlightContent";
 
 const OtherServices = () => {
   const [activeTab, setActiveTab] = useState("consultancy"); // Default tab
@@ -90,7 +92,6 @@ const OtherServices = () => {
   //   },
   // ];
 
-
   return (
     <Layout headerStyle={1} footerStyle={1} breadcrumbTitle="Value Added Services">
       <Head>
@@ -126,7 +127,17 @@ const OtherServices = () => {
                   {/* ) */}
                 </ul>
                 <div className="tab-content wow fadeInUp" data-wow-delay=".4s">
-                  {tabs.find((tab) => tab.id === activeTab)?.content}
+                  {(() => {
+                    const currentTab = tabs.find((tab) => tab.id === activeTab);
+                    if (!currentTab) return null;
+
+                    const processedContent = highlightContent(
+                      currentTab.content,
+                      currentTab.title
+                    );
+
+                    return <MarkdownRenderer content={processedContent} />;
+                  })()}
                 </div>
               </div>
             </div>
