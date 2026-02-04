@@ -6,6 +6,9 @@ import Layout from "../../components/layout/Layout";
 import MarkdownRenderer from "@/components/MarkdownRenderer";
 import { highlightContent } from "@/util/highlightContent";
 
+
+
+
 const OtherServices = () => {
   const [activeTab, setActiveTab] = useState("consultancy"); // Default tab
 
@@ -103,7 +106,7 @@ const OtherServices = () => {
       </Head>
 
       {/* Hero Section */}
-      <section className="hero" id="other-services">
+      <section className="hero" id="Value Added Services">
         {/* Tab Section with Horizontal Menu at Top of Content */}
         <div className="services-section">
           <div className="container">

@@ -109,31 +109,32 @@ export default function Faq() {
   const [faqItems, setFaqItems] = useState(defaultFaqItems); // Initialize with default FAQ items
 
   // Fetch FAQ data from API on mount
-  useEffect(() => {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  // useEffect(() => {
+  //   const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
-    const fetchFaqData = async () => {
-      try {
-        const response = await fetch(`${apiUrl}/home/api/faq/`); // Hypothetical endpoint
-        const data = await response.json();
-        // Assuming the API returns an array of objects with id, question, and answer
-        if (data && Array.isArray(data) && data.length > 0) {
-          const fetchedFaqItems = data.map((item, index) => ({
-            id: item.id || index + 1, // Use API ID or fallback to index
-            question: item.question || "Unnamed Question",
-            answer: item.answer || item.content || "No answer provided.",
-            delay: defaultFaqItems[index % defaultFaqItems.length].delay, // Reuse delays
-          }));
-          setFaqItems(fetchedFaqItems);
-        }
-      } catch (error) {
-        console.error("Error fetching FAQ data:", error);
-        // Fallback to defaultFaqItems (already set)
-      }
-    };
+  //   // const fetchFaqData = async () => {
+  //   //   try {
+  //   //     const response = await fetch(`${apiUrl}/home/api/faq/`); // Hypothetical endpoint
+  //   //     const data = await response.json();
+  //   //     // Assuming the API returns an array of objects with id, question, and answer
+  //   //     if (data && Array.isArray(data) && data.length > 0) {
+  //   //       const fetchedFaqItems = data.map((item, index) => ({
+  //   //         id: item.id || index + 1, // Use API ID or fallback to index
+  //   //         question: item.question || "Unnamed Question",
+  //   //         answer: item.answer || item.content || "No answer provided.",
+  //   //         delay: defaultFaqItems[index % defaultFaqItems.length].delay, // Reuse delays
+  //   //       }));
+  //   //       setFaqItems(fetchedFaqItems);
+  //   //     }
+  //   //   } catch (error) {
+  //   //     console.error("Error fetching FAQ data:", error);
+  //   //     // Fallback to defaultFaqItems (already set)
+  //   //   }
+  //   // };
 
-    fetchFaqData();
-  }, []); // Runs once on mount
+  //   fetchFaqData();
+  // }, []);
+   // Runs once on mount
 
   const handleAccordion = (key) => {
     setIsAccordion((prevState) => (prevState === key ? null : key));
